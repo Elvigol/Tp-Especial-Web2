@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base href="<?= BASE_URL ?>">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+     <title>Gestor de Planes</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home">Inicio</a></li>
+            <li><a href="planes">Todos los Planes</a></li>
+            <li><a href="clientes">Lista de Clientes</a></li>
+            <li><a href="login">Login Admin</a></li>
+        </ul>
+    </nav>
+    <hr>
+
+    <h1>Lista de Planes Disponibles</h1>
+
+    <?php if (count($planes) > 0): ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Monto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($planes as $plan): ?>
+                    <tr>
+                        <td><?= $plan->descripcion ?></td>
+                        <td>$<?= $plan->monto_total ?></td>
+                        <td>
+                            <a href="cliente/<?= $plan->id_cliente ?>">Ver detalles del Plan</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No hay planes cargados actualmente.</p>
+    <?php endif; ?>
+
+    <hr>
+    <footer>
+        <p>Trabajo Práctico Especial - Web 2</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?= BASE_URL ?>">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login - Administrador</title>
+</head>
+<body>
+    <div class="contenedor-formulario">
+        <h2 class="titulo-principal">Ingreso Privado</h2>
+
+        <?php if($error): ?>
+            <div class="mensaje-error">
+                <p><?= $error ?></p>
+            </div>
+        <?php endif; ?>
+
+        <form action="verify" method="POST" class="formulario-alta">
+            
+            <div class="grupo-form">
+                <label for="username" class="descripcion">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="password" class="descripcion">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="boton-guardar">
+                Ingresar al Sistema
+            </button>
+            
+            <a href="home" class="enlace-cancelar">Volver al sitio público</a>
+        </form>
+    </div>
+</body>
+</htmls

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?= BASE_URL ?>">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Editar Plan</title>
+</head>
+<body>
+    <div class="item-plan contenedor-formulario">
+        <h2 class="titulo-principal">Editar Plan</h2>
+
+        <form action="update-plan/<?= $plan->id_plan ?>" method="POST" class="formulario-alta">
+
+            <div class="grupo-form">
+                <label for="descripcion" class="descripcion">Descripción del plan:</label>
+                <input type="text" id="descripcion" name="descripcion" value="<?= $plan->descripcion ?>" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="categoria" class="descripcion">Categoría:</label>
+                <input type="text" id="categoria" name="categoria" value="<?= $plan->categoria ?>" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="monto_total" class="descripcion">Monto Total ($):</label>
+                <input type="number" step="0.01" id="monto_total" name="monto_total" value="<?= $plan->monto_total ?>" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="id_cliente" class="descripcion">Asignar al Cliente:</label>
+                <select id="id_cliente" name="id_cliente" required>
+                    <?php foreach($clientes as $cliente): ?>
+                        <option value="<?= $cliente->id_cliente ?>" 
+                            <?php if($cliente->id_cliente == $plan->id_cliente) echo 'selected'; ?>>
+                            <?= $cliente->nombre ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <button type="submit" class="enlace-detalle boton-guardar">
+                Actualizar Plan
+            </button>
+            <a href="planes" class="enlace-cancelar">Cancelar y volver</a>
+        </form>
+    </div>
+</body>
+</html>

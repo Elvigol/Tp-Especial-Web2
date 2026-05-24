@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?= BASE_URL ?>">
+    <link rel="stylesheet" hreft=css/style.css>
+    <title>Nuestros Clientes</title>
+
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1 class="titulo-principal">Nuestros Clientes (Categorías)</h1>
+
+        <ul class="lista-planes">
+            <?php foreach($clientes as $cliente): ?>
+                <li class="item-plan item-cliente">
+                    
+                    <div class="contenedor-avatar">
+                        <?php if($cliente->imagen_url): ?>
+                            <img src="<?= $cliente->imagen_url ?>" alt="Foto de <?= $cliente->nombre ?>" class="avatar-cliente">
+                        <?php else: ?>
+                            <div class="avatar-placeholder"></div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="datos-cliente">
+                        <p class="info-plan">
+                            <span class="descripcion nombre-cliente">
+                                <?= $cliente->nombre ?>
+                            </span>
+                        </p>
+                        
+                        <p class="cliente-plan contacto-cliente">
+                            Contacto: <?= $cliente->email ?>
+                        </p>
+                        
+                        <a class="enlace-detalle boton-chico" href="cliente/<?= $cliente->id_cliente ?>">
+                            Ver planes de este cliente
+                        </a>
+                        <?php if (isset($_SESSION['IS_LOGGED'])): ?>
+                <a href="editar-cliente/<?= $cliente->id_cliente ?>" class="boton-editar">Editar</a>
+                <a href="eliminar-cliente/<?= $cliente->id_cliente ?>" class="boton-eliminar">Eliminar</a>
+                <a href="nuevo-cliente" class="boton-agregar">Agregar Nuevo Cliente</a>
+            <?php endif; ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <div class="contenedor-volver">
+            <a href="home" class="enlace-cancelar">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

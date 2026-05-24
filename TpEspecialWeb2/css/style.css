@@ -1,0 +1,104 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5dc; /* beige */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.contenedor-principal {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.titulo-principal {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+nav {
+    background-color: #ffe4c4; /* bisque */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.lista-planes {
+    list-style: none;
+    padding: 0;
+}
+
+.item-plan {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.boton-agregar, .boton-editar, .boton-eliminar {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.boton-agregar { background-color: #27ae60; }
+.boton-editar { background-color: #f39c12; }
+.boton-eliminar { background-color: #e74c3c; }
+
+/* --- Tabla de Planes --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th { background-color: #ffe4c4; }
+
+.contenedor-detalle-particular {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.monto-detalle {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.8rem;
+    color: #2980b9;
+    font-weight: bold;
+}

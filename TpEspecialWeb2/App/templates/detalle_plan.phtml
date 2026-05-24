@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?= BASE_URL ?>">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Detalle del Plan</title>
+    
+</head>
+<body>
+    <div class="item-plan contenedor-formulario contenedor-detalle-particular">
+        
+        <h1 class="titulo-principal"><?= $plan->descripcion ?></h1>
+        
+        <p class="info-plan">
+            <span class="categoria-detalle">Categoría: <?= $plan->categoria ?></span>
+            <span class="monto-detalle">Monto Total: $<?= $plan->monto_total ?></span>
+        </p>
+        
+        <div class="cliente-plan-seccion">
+            <p class="texto-cliente">
+                Este plan pertenece al cliente: <strong><?= $plan->nombre_cliente ?></strong>
+            </p>
+        </div>
+
+        <div class="contenedor-retorno">
+            <a href="planes" class="enlace-cancelar">← Volver al listado</a>
+        </div>
+
+    </div>
+</body>
+</html>

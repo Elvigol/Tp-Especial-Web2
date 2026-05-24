@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Planes de Cuotas</title>
+</head>
+<body>
+    <h1 class="titulo-principal">Planes de Cuotas Disponibles</h1>
+
+    <?php if (isset($_SESSION['IS_LOGGED'])): ?>
+        <a href="<?= BASE_URL ?>nuevo-plan" class="btn-nuevo">Agregar nuevo plan</a>
+    <?php endif; ?>
+
+    <ul class="lista-planes">
+        <?php foreach($planes as $plan):?>
+        <li class="item-plan">
+            <p class="info-plan">
+                <span class="descripcion"><?= $plan->descripcion?></span>
+                <span class="categoria">(Categoría <?= $plan->categoria?>)</span>
+                <span class="monto">Monto Total:$<?=$plan->monto_total?></span>
+            </p>
+            <p class="cliente-plan">
+                Asignado al cliente <?= $plan->nombre_cliente?>
+            </p>
+            
+            <a href="<?= BASE_URL ?>plan/<?= $plan->id_plan?>">Ver Detalle</a>
+
+            <?php if (isset($_SESSION['IS_LOGGED'])): ?>
+                <div class="acciones-admin">
+                    <a href="<?= BASE_URL ?>editar-plan/<?= $plan->id_plan?>">Editar</a>
+                    <a href="<?= BASE_URL ?>eliminar-plan/<?= $plan->id_plan?>">Eliminar</a>
+                </div>
+            <?php endif; ?>
+        </li>
+        <?php endforeach;?>
+    </ul>
+</body>
+</html>
